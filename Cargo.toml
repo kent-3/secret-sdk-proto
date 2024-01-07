@@ -1,0 +1,22 @@
+[package]
+name = "secret-sdk-proto"
+description = "Secret Network protobuf struct definitions. Wraps cosmos-sdk-proto."
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["cosmos", "secret", "extensions"]
+cosmos = []
+ibc = ["cosmos"]
+secret = ["cosmos"]
+extensions = []
+
+[dependencies]
+cosmos-sdk-proto = { version = "0.20.0", default-features = false }
+bytes = "1.5"
+prost = "0.12"
+prost-types = "0.12"
+
+[build-dependencies]
+prost-build = "0.12.3"
+protoc-prebuilt = "0.2.0"
