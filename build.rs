@@ -5,7 +5,7 @@ fn main() -> std::io::Result<()> {
         std::env::set_var("PROTOC", protoc_bin);
     }
 
-    #[cfg(feature = "secret")]
+    #[cfg(feature = "cosmos-sdk")]
     {
         prost_build::Config::new()
             .enable_type_names()
@@ -28,7 +28,7 @@ fn main() -> std::io::Result<()> {
             .unwrap();
     }
 
-    #[cfg(all(feature = "secret", not(feature = "cosmos-sdk")))]
+    #[cfg(not(feature = "cosmos-sdk"))]
     {
         prost_build::Config::new()
             .enable_type_names()

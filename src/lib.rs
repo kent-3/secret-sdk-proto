@@ -1,7 +1,6 @@
 #[cfg(feature = "cosmos-sdk")]
 pub use cosmos_sdk_proto::*;
 
-#[cfg(feature = "secret")]
 pub mod secret {
     pub mod compute {
         pub mod v1beta1 {
@@ -32,7 +31,7 @@ pub mod secret {
 }
 
 // Include the types needed to support the secret types.
-#[cfg(all(feature = "secret", not(feature = "cosmos-sdk")))]
+#[cfg(not(feature = "cosmos-sdk"))]
 pub mod tendermint {
     pub mod abci {
         include!(concat!(env!("OUT_DIR"), "/tendermint.abci.rs"));
@@ -51,8 +50,8 @@ pub mod tendermint {
     }
 }
 
-// Include only the types needed to support the secret compute types.
-#[cfg(all(feature = "secret", not(feature = "cosmos-sdk")))]
+// Include the types needed to support the secret types.
+#[cfg(not(feature = "cosmos-sdk"))]
 pub mod cosmos {
     /// Authentication of accounts and transactions.
     pub mod auth {

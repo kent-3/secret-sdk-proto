@@ -6,7 +6,7 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["secret", "protoc"]
+default = ["secret", "cosmos-sdk", "protoc"]
 secret = []
 cosmos-sdk = ["dep:cosmos-sdk-proto"]
 protoc = ["dep:protoc-prebuilt"]
