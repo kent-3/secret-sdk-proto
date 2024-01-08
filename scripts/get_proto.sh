@@ -20,9 +20,9 @@ SECRET_DIR="proto"
 git sparse-checkout set "$SECRET_DIR"
 cp -R "${SECRET_DIR}"/* "${DEST_DIR}"
 
-# SECRET_THIRD_PARTY_DIR="third_party/proto"
-# git sparse-checkout set "$SECRET_THIRD_PARTY_DIR"
-# cp -R "${SECRET_THIRD_PARTY_DIR}"/* "${DEST_DIR}"
+SECRET_THIRD_PARTY_DIR="third_party/proto"
+git sparse-checkout set "$SECRET_THIRD_PARTY_DIR"
+cp -R "${SECRET_THIRD_PARTY_DIR}"/* "${DEST_DIR}"
 
 cd "${SCRIPT_PATH}"
 rm -rf "${SCRIPT_PATH}/SecretNetwork"
