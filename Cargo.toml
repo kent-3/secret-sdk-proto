@@ -1,9 +1,15 @@
 [package]
 name = "secret-sdk-proto"
+version = "0.0.0"
 authors = ["Kent"]
+license = "Apache-2.0"
+repository = "https://github.com/kent-3/secret-sdk-proto"
 description = "Secret Network protobuf struct definitions"
-version = "0.1.0"
+readme = "README.md"
+categories = ["cryptography", "cryptography::cryptocurrencies", "database"]
+keywords = ["blockchain", "cosmos", "tendermint", "proto"]
 edition = "2021"
+rust-version = "1.72"
 
 [features]
 default = ["secret", "cosmos-sdk", "protoc"]
