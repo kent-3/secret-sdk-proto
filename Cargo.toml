@@ -12,17 +12,15 @@ edition = "2021"
 rust-version = "1.72"
 
 [features]
-default = ["secret", "cosmos-sdk", "protoc"]
+default = ["grpc-transport"]
 secret = []
-cosmos-sdk = ["dep:cosmos-sdk-proto"]
-protoc = ["dep:protoc-prebuilt"]
+grpc = ["tonic"]
+grpc-transport = ["grpc", "tonic/transport"]
 
 [dependencies]
-cosmos-sdk-proto = { version = "0.20.0", default-features = false, optional = true }
-bytes = "1.5"
 prost = "0.12"
 prost-types = "0.12"
+cosmos-sdk-proto = { version = "0.21", default-features = false }
 
-[build-dependencies]
-prost-build = "0.12.3"
-protoc-prebuilt = { version = "0.2.0", optional = true }
+# Optional dependencies
+tonic = { version = "0.11", optional = true, default-features = false, features = ["codegen", "prost"] }
